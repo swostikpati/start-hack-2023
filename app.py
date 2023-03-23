@@ -197,21 +197,21 @@ def print_object_attributes(names, obj:object, tab_level:int=0, min_attr_length:
         for o in obj:
             if type(o) == object or type(o) == SimpleNamespace:
                 print_object_attributes(o, tab_level+1, min_attr_length)
-            #     st.markdown("")
-            # else:
-            #     st.markdown(f"{space}{o:<{min_attr_length}}")
+                st.markdown("")
+            else:
+                st.markdown(f"{space}{o:<{min_attr_length}}")
     else:
         for attr, value in obj.__dict__.items():
             if type(value) == object or type(value) == SimpleNamespace or type(value) == list:
-                # st.markdown(f"{space}{attr}")
+                st.markdown(f"{space}{attr}")
 
                 adjusted_min_attr_length = min_attr_length - (len(space_sep)*(tab_level+1))
                 if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
                 print_object_attributes(value, tab_level+1, adjusted_min_attr_length)
             else:
-                if attr == "name":
-                    names.append(value)
-            #     st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")     
+                # if attr == "name":
+                #     names.append(value)
+                st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")     
 
 ######################### print_object_attributes (time series) ######################### 
 
