@@ -8,6 +8,7 @@ import logging
 import plotly.graph_objects as go
 import os
 import datetime
+import streamlit_card as card
 
 # from pathlib import Path
 # from streamlit.source_util import (
@@ -284,6 +285,14 @@ with st.sidebar.form(key='Form2'):
 if submit_button:
     obj = findata.text_search(query)
     print_object_attributes(obj)
+
+res = card(
+    title="Hello World!",
+    text="Some description",
+    image="http://placekitten.com/200/300",
+    url="https://github.com/nathanyaqueby/start-hack-2023")
+
+st.write(res)
 
 if submit_button2:
     obj = findata.listing_EoDTimeseries(query2, [listing], start_date)
