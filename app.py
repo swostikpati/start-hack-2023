@@ -287,10 +287,11 @@ if submit_button:
     print_object_attributes(obj)
 
 res = card(
-    title="Hello World!",
-    text="Some description",
-    image="http://placekitten.com/200/300",
-    url="https://github.com/nathanyaqueby/start-hack-2023")
+    title="Streamlit Card",
+    text="This is a test card",
+    image="https://placekitten.com/500/500",
+    url="https://github.com/gamcoh/st-card",
+)
 
 st.write(res)
 
