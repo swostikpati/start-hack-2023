@@ -50,7 +50,7 @@ def add_page(main_script_path_str, page_name):
 delete_page('app.py', 'app')
 
 # add the chatbot page to the sidebar
-add_page('pages/1_🗨️_Chatbot.py', '🗨️ Chatbot')
+add_page('pages/1_🗨️_Chatbot.py', '1 🗨️ Chatbot')
 
 ############ page config
 st.set_page_config(
