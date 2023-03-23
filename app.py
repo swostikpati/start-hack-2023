@@ -257,7 +257,9 @@ def print_object_attributes_timeseries(highs, lows, obj:object, tab_level:int=0,
                 
                 # print(f"{space}{attr:<{min_attr_length}}: {value}")  
     
-    return max(highs), min(lows)
+    # if length of dates and volumes is greater than 0, return them
+    if len(highs) > 0 and len(lows) > 0:
+        return max(highs), min(lows)
 
 ######################### DASHBOARD #########################    
 
