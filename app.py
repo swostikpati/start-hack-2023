@@ -226,7 +226,7 @@ def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int
 
 with st.sidebar.form(key='Form1'):
     # create a sidebar with a submit button
-    st.title("Financial Data Query")
+    st.title("🏢 Financial Data Query")
 
     # add an input bar in the sidebar for the user to enter the query
     query = st.text_input("Enter a company name", "Apple")
@@ -236,7 +236,7 @@ with st.sidebar.form(key='Form1'):
 
 with st.sidebar.form(key='Form2'):
     # create a sidebar with a submit button
-    st.title("Financial Trends")
+    st.title("📈 Financial Trends")
 
     # add an input bar in the sidebar for the user to enter the query
     query2 = st.text_input("Enter a company name", "VALOR_BC")
@@ -258,15 +258,13 @@ if submit_button:
     print_object_attributes(obj)
 
 if submit_button2:
-    obj = findata.listing_EoDTimeseries(query2, listing, start_date)
+    obj = findata.listing_EoDTimeseries(query2, [listing], start_date)
     dates = []
     volumes = []
     print_object_attributes_timeseries(dates, volumes, obj)
 
     # plot the dates and volumes using plotly   
     fig = go.Figure(data=go.Scatter(x=dates, y=volumes, mode='lines+markers'))
-    st.plotly_chart(fig)
-
     # add title to the plot
     fig.update_layout(
         title={
@@ -275,3 +273,5 @@ if submit_button2:
             'x':0.5,
             'xanchor': 'center',
             'yanchor': 'top'})
+    
+    st.plotly_chart(fig, use_container_width=True)
