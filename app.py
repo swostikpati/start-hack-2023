@@ -261,11 +261,11 @@ with st.sidebar.form(key='Form1'):
     # add a submit button to the sidebar
     submit_button = st.form_submit_button(label='Generate VR world', use_container_width=True)
 
+with st.sidebar.form(key='Form2'):
+    st.title("💡 Tips & Tricks")
+    st.markdown("Click on the VR button in the bottom right corner to access the world using your favorite VR glasses!")
+
 st.sidebar.image("START_Logo.png", use_column_width=True)
-
-# with st.sidebar.form(key='Form2'):
-
-#     st.title("📄 Download report")
 
 if submit_button:
         
