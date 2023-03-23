@@ -279,12 +279,16 @@ if submit_button:
             # while highs and lows are empty, get the company information
             while len(highs) == 0 and len(lows) == 0:
 
-                obj = findata.text_search(company)
-                valors, bcs = print_object_attributes_text(valors, bcs, obj)
+                try:
+                    obj = findata.text_search(company)
+                    valors, bcs = print_object_attributes_text(valors, bcs, obj)
 
-                # get the EoD timeseries for the company
-                obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valors[count]}_{bcs[count]}"], start_date, end_date)
-                highs, lows = print_object_attributes_timeseries(highs, lows, obj)
+                    # get the EoD timeseries for the company
+                    obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valors[count]}_{bcs[count]}"], start_date, end_date)
+                    highs, lows = print_object_attributes_timeseries(highs, lows, obj)
+                
+                except:
+                    st.write("Error", company, count)
 
                 count += 1
 
