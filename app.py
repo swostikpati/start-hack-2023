@@ -298,12 +298,17 @@ if submit_button:
     # for each company in the list, get the company information
     for company in options:
 
+        valors = []
+        bcs = []
+        highs = []
+        lows = []
+
         obj = findata.text_search(company)
-        valor, bc = print_object_attributes_text(obj)
+        valor, bc = print_object_attributes_text(valors, bcs, obj)
 
         # get the EoD timeseries for the company
         obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valor}_{bc}"], start_date, end_date)
-        high, low = print_object_attributes_timeseries(obj)
+        high, low = print_object_attributes_timeseries(highs, lows, obj)
 
         # append the difference between each high and low to the list "decimals"
         decimals = [(high[i]-low[i])/(max(high)-min(low)) for i in range(len(high))]
