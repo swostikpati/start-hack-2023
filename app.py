@@ -7,6 +7,7 @@ from types import SimpleNamespace
 import logging
 import plotly.graph_objects as go
 import os
+import datetime
 
 ############ page config
 st.set_page_config(
@@ -22,6 +23,7 @@ st.set_page_config(
 )
 
 # st.title('Algaeia')
+st.markdown("# 💸 Financial Literacy Platform for the Next Generation")
 st.markdown("Welcome to *_Cutting Edge_*! "
             "Read more about our project on [GitHub](https://github.com/nathanyaqueby/start-hack-2023).")
 
@@ -43,7 +45,7 @@ class FinancialDataAPI:
         }
         self.session = requests.session()
         certificate_path = 'ch52991-hackathon1'
-        self.session.cert = (f'{certificate_path}/signed-certificate.pem', f'{certificate_path}/private-key.pem')
+        self.session.cert = (f'{certificate_path}\signed-certificate.pem', f'{certificate_path}\private-key.pem')
     
     def http_request(self, end_point:str, query_string:dict) -> str:
         # Make an HTTP request and send the raw response
@@ -222,27 +224,54 @@ def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int
 
 ######################### DASHBOARD #########################    
 
-# create an input bar for the user to enter the query and only print the results if the user presses enter
-query = st.text_input("Enter a query", "Apple")
+with st.sidebar.form(key='Form1'):
+    # create a sidebar with a submit button
+    st.sidebar.title("Financial Data Query")
 
-if query:
+    # add an input bar in the sidebar for the user to enter the query
+    query = st.sidebar.text_input("Enter a company name", "Apple")
+
+    # add a submit button to the sidebar
+    submit_button = st.sidebar.form_submit_button(label='Generate Report')
+
+with st.sidebar.form(key='Form2'):
+    # create a sidebar with a submit button
+    st.sidebar.title("Financial Trends")
+
+    # add an input bar in the sidebar for the user to enter the query
+    query2 = st.sidebar.text_input("Enter a company name", "VALOR_BC")
+
+    # add a dropdown field for the user to select the listing
+    listing = st.sidebar.selectbox("Select a listing", ["1222171_4"])
+
+    # add an input field for the user to enter the starting date
+    start_date = st.sidebar.date_input("Enter a start date", datetime.date(2022, 7, 1))
+
+    # save the date in the format YYYY-MM-DD
+    start_date = start_date.strftime("%Y-%m-%d")
+
+    # add a submit button to the sidebar
+    submit_button2 = st.sidebar.form_submit_button(label='Generate Report')
+
+if submit_button:
     obj = findata.text_search(query)
     print_object_attributes(obj)
 
-obj = findata.listing_EoDTimeseries("VALOR_BC", ["1222171_4"], "2022-07-01")
-dates = []
-volumes = []
-print_object_attributes_timeseries(dates, volumes, obj)
+if submit_button2:
+    obj = findata.listing_EoDTimeseries(query2, listing, start_date)
+    dates = []
+    volumes = []
+    print_object_attributes_timeseries(dates, volumes, obj)
 
-# plot the dates and volumes using plotly   
-fig = go.Figure(data=go.Scatter(x=dates, y=volumes, mode='lines+markers'))
-st.plotly_chart(fig)
+    # plot the dates and volumes using plotly   
+    fig = go.Figure(data=go.Scatter(x=dates, y=volumes, mode='lines+markers'))
+    st.plotly_chart(fig)
 
-# add title to the plot
-fig.update_layout(
-    title={
-        'text': "Volume of VALOR_BC stock",
-        'y':0.9,
-        'x':0.5,
-        'xanchor': 'center',
-        'yanchor': 'top'})
+    # add title to the plot
+    fig.update_layout(
+        title={
+            'text': "Volume of VALOR_BC stock",
+            'y':0.9,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'})
