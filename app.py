@@ -308,7 +308,10 @@ if submit_button:
     # print the first entry when appling text_search on each company in options
     # st.write("hello")
     # st.write("You picked: ", options)
-    st.video("trailer.avi")
+    video_file = open('trailer.avi', 'rb')
+    video_bytes = video_file.read()
+
+    st.video(video_bytes)
     # for company in options:
     #     obj = findata.text_search(company)
     #     print_object_attributes(obj[0])
