@@ -2,6 +2,5 @@ streamlit
 ipython
 requests
 urllib3
-json
 logging
 types
