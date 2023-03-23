@@ -31,7 +31,7 @@ def delete_page(main_script_path_str, page_name):
     _on_pages_changed.send()
 
 # remove the page from the sidebar
-delete_page('app.py', 'app.py')
+delete_page('app.py', 'app')
 
 ############ page config
 st.set_page_config(
