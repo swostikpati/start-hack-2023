@@ -306,11 +306,12 @@ with st.sidebar.form(key='Form1'):
 
 if submit_button:
     # print the first entry when appling text_search on each company in options
-    # st.write("hello")
-    for company in options:
-        obj = findata.text_search(company)
-        print_object_attributes(obj[0])
-        st.markdown("")
+    st.write("hello")
+    st.write("You picked: ", options)
+    # for company in options:
+    #     obj = findata.text_search(company)
+    #     print_object_attributes(obj[0])
+    #     st.markdown("")
 
 # if submit_button2:
 #     obj = findata.listing_EoDTimeseries(query2, [listing], start_date)
