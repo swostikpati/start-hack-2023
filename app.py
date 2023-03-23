@@ -217,7 +217,7 @@ def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_a
 
     # if length of valors and bcs is greater than 0, return them
     if len(valors) > 0 and len(bcs) > 0:
-        return valors[0], bcs[0] 
+        return valors, bcs 
 
 ######################### print_object_attributes (time series) ######################### 
 
@@ -304,15 +304,19 @@ if submit_button:
         highs = []
         lows = []
 
+        count = 0
+
         # while highs and lows are empty, get the company information
         while len(highs) == 0 and len(lows) == 0:
 
             obj = findata.text_search(company)
-            valor, bc = print_object_attributes_text(valors, bcs, obj)
+            valors, bcs = print_object_attributes_text(valors, bcs, obj)
 
             # get the EoD timeseries for the company
-            obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valor}_{bc}"], start_date, end_date)
+            obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valors[count]}_{bcs[count]}"], start_date, end_date)
             highs, lows = print_object_attributes_timeseries(highs, lows, obj)
+
+            count += 1
 
         # append the difference between each high and low to the list "decimals"
         decimals = [(highs[i]-lows[i]) for i in range(len(highs))]
