@@ -308,7 +308,7 @@ if submit_button:
     # print the first entry when appling text_search on each company in options
     # st.write("hello")
     # st.write("You picked: ", options)
-    video_file = open('trailer.avi', 'rb')
+    video_file = open('trailer.mp4', 'rb')
     video_bytes = video_file.read()
 
     st.video(video_bytes)
