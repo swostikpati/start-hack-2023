@@ -264,10 +264,11 @@ st.sidebar.image("SIX_CUTTINGEDGE.png", use_column_width=True)
 # submit_button = st.form_submit_button(label='Generate Report')
 
 options = st.multiselect(
-'Which companies would you like to see?',
-['DKSH', 'Deloitte', 'Amazon', 'Nike'],
-default=['Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX']
-)
+    'What are your favorite colors',
+    ['Green', 'Yellow', 'Red', 'Blue'],
+    ['Yellow', 'Red'])
+
+st.write('You selected:', options)
 
 # add an input field for the user to enter the starting date
 start_date = st.date_input("Enter a start date", datetime.date(2023, 7, 1))
