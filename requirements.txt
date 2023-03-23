@@ -2,4 +2,3 @@ streamlit
 ipython
 requests
 urllib3
-types
