@@ -188,7 +188,7 @@ findata = FinancialDataAPI()
 
 ######################### print_object_attributes #########################
 
-def print_object_attributes(names, obj:object, tab_level:int=0, min_attr_length:int=30):
+def print_object_attributes(obj:object, tab_level:int=0, min_attr_length:int=30):
     if obj is None: return
     space_sep = "  "
     space = space_sep*tab_level
