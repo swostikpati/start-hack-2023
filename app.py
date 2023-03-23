@@ -255,7 +255,7 @@ st.sidebar.image("SIX_CUTTINGEDGE.png", use_column_width=True)
 
 # with st.sidebar.form(key='Form1'):
 # create a sidebar with a submit button
-# st.title("🏢 Financial Data Query")
+st.title("🏢 Financial Data Query")
 
 # # add an input bar in the sidebar for the user to enter the query
 # query = st.text_input("Enter a company name", "Apple")
@@ -264,11 +264,10 @@ st.sidebar.image("SIX_CUTTINGEDGE.png", use_column_width=True)
 # submit_button = st.form_submit_button(label='Generate Report')
 
 options = st.multiselect(
-    'What are your favorite colors',
-    ['Green', 'Yellow', 'Red', 'Blue'],
-    ['Yellow', 'Red'])
-
-st.write('You selected:', options)
+'Which companies would you like to see?',
+['DKSH', 'Deloitte', 'Amazon', 'Nike', 'Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX'],
+default=['Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX']
+)
 
 # add an input field for the user to enter the starting date
 start_date = st.date_input("Enter a start date", datetime.date(2023, 7, 1))
@@ -283,7 +282,7 @@ end_date = st.date_input("Enter an end date", datetime.date(2023, 3, 22), max_va
 end_date = end_date.strftime("%Y-%m-%d")
 
 # add a submit button to the sidebar
-submit_button = st.form_submit_button(label='Generate Report')
+# submit_button = st.form_submit_button(label='Generate Report')
 
 
 # with st.sidebar.form(key='Form2'):
@@ -305,10 +304,10 @@ submit_button = st.form_submit_button(label='Generate Report')
 #     # add a submit button to the sidebar
 #     submit_button2 = st.form_submit_button(label='Plot Graph')
 
-if submit_button:
-    # print the first entry when appling text_search on each company in options
-    st.write("hello")
-    st.write("You picked: ", options)
+# if submit_button:
+#     # print the first entry when appling text_search on each company in options
+#     st.write("hello")
+#     st.write("You picked: ", options)
     # for company in options:
     #     obj = findata.text_search(company)
     #     print_object_attributes(obj[0])
