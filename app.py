@@ -9,28 +9,28 @@ import plotly.graph_objects as go
 import os
 import datetime
 
-from pathlib import Path
-from streamlit.source_util import (
-    page_icon_and_name, 
-    calc_md5, 
-    get_pages,
-    _on_pages_changed
-)
+# from pathlib import Path
+# from streamlit.source_util import (
+#     page_icon_and_name, 
+#     calc_md5, 
+#     get_pages,
+#     _on_pages_changed
+# )
 
-def delete_page(main_script_path_str, page_name):
+# def delete_page(main_script_path_str, page_name):
 
-    current_pages = get_pages(main_script_path_str)
+#     current_pages = get_pages(main_script_path_str)
 
-    for key, value in current_pages.items():
-        if value['page_name'] == page_name:
-            del current_pages[key]
-            break
-        else:
-            pass
-    _on_pages_changed.send()
+#     for key, value in current_pages.items():
+#         if value['page_name'] == page_name:
+#             del current_pages[key]
+#             break
+#         else:
+#             pass
+#     _on_pages_changed.send()
 
-# remove the page from the sidebar
-delete_page('app.py', 'app')
+# # remove the page from the sidebar
+# delete_page('app.py', 'app')
 
 ############ page config
 st.set_page_config(
