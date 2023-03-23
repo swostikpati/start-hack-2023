@@ -8,7 +8,7 @@ import logging
 import plotly.graph_objects as go
 import os
 import datetime
-import streamlit_card as card
+# import streamlit_card as card
 
 # from pathlib import Path
 # from streamlit.source_util import (
@@ -189,7 +189,7 @@ findata = FinancialDataAPI()
 
 ######################### print_object_attributes #########################
 
-def print_object_attributes(obj:object, tab_level:int=0, min_attr_length:int=30):
+def print_object_attributes(names, obj:object, tab_level:int=0, min_attr_length:int=30):
     if obj is None: return
     space_sep = "  "
     space = space_sep*tab_level
@@ -197,7 +197,7 @@ def print_object_attributes(obj:object, tab_level:int=0, min_attr_length:int=30)
     if type(obj) == list:
         for o in obj:
             if type(o) == object or type(o) == SimpleNamespace:
-                print_object_attributes(o, tab_level+1, min_attr_length)
+                print_object_attributes(names, o, tab_level+1, min_attr_length)
                 st.markdown("")
             else:
                 st.markdown(f"{space}{o:<{min_attr_length}}")
@@ -208,7 +208,7 @@ def print_object_attributes(obj:object, tab_level:int=0, min_attr_length:int=30)
 
                 adjusted_min_attr_length = min_attr_length - (len(space_sep)*(tab_level+1))
                 if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
-                print_object_attributes(value, tab_level+1, adjusted_min_attr_length)
+                print_object_attributes(names, value, tab_level+1, adjusted_min_attr_length)
             else:
                 # if attr == "name":
                 #     names.append(value)
@@ -257,59 +257,74 @@ with st.sidebar.form(key='Form1'):
     # create a sidebar with a submit button
     st.title("🏢 Financial Data Query")
 
-    # add an input bar in the sidebar for the user to enter the query
-    query = st.text_input("Enter a company name", "Apple")
+    # # add an input bar in the sidebar for the user to enter the query
+    # query = st.text_input("Enter a company name", "Apple")
 
-    # add a submit button to the sidebar
-    submit_button = st.form_submit_button(label='Generate Report')
+    # # add a submit button to the sidebar
+    # submit_button = st.form_submit_button(label='Generate Report')
 
-with st.sidebar.form(key='Form2'):
-    # create a sidebar with a submit button
-    st.title("📈 Financial Trends")
-
-    # add an input bar in the sidebar for the user to enter the query
-    query2 = st.text_input("Enter a company name", "VALOR_BC")
-
-    # add a dropdown field for the user to select the listing
-    listing = st.selectbox("Select a listing", ["1222171_4"])
+    options = st.multiselect(
+    'Which companies would you like to see?',
+    ['Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX'],
+    ['DKSH', 'Deloitte', 'Amazon', 'Nike'])
 
     # add an input field for the user to enter the starting date
-    start_date = st.date_input("Enter a start date", datetime.date(2022, 7, 1))
+    start_date = st.date_input("Enter a start date", datetime.date(2023, 7, 1))
 
     # save the date in the format YYYY-MM-DD
     start_date = start_date.strftime("%Y-%m-%d")
 
+    # add an input field for the user to enter the starting date
+    end_date = st.date_input("Enter an end date", datetime.date(2023, 3, 22), max_value=datetime.date(2023, 3, 22))
+
+    # save the date in the format YYYY-MM-DD
+    end_date = end_date.strftime("%Y-%m-%d")
+
     # add a submit button to the sidebar
-    submit_button2 = st.form_submit_button(label='Plot Graph')
+    submit_button = st.form_submit_button(label='Generate Report')
+
+
+# with st.sidebar.form(key='Form2'):
+#     # create a sidebar with a submit button
+#     st.title("📈 Financial Trends")
+
+#     # add an input bar in the sidebar for the user to enter the query
+#     query2 = st.text_input("Enter a company name", "VALOR_BC")
+
+#     # add a dropdown field for the user to select the listing
+#     listing = st.selectbox("Select a listing", ["1222171_4"])
+
+#     # add an input field for the user to enter the starting date
+#     start_date = st.date_input("Enter a start date", datetime.date(2022, 7, 1))
+
+#     # save the date in the format YYYY-MM-DD
+#     start_date = start_date.strftime("%Y-%m-%d")
+
+#     # add a submit button to the sidebar
+#     submit_button2 = st.form_submit_button(label='Plot Graph')
 
 if submit_button:
-    obj = findata.text_search(query)
-    print_object_attributes(obj)
+    # print the first entry when appling text_search on each company in options
+    for company in options:
+        obj = findata.text_search(company)
+        print_object_attributes(obj[0])
+        st.markdown("")
 
-res = card(
-    title="Streamlit Card",
-    text="This is a test card",
-    image="https://placekitten.com/500/500",
-    url="https://github.com/gamcoh/st-card",
-)
+# if submit_button2:
+#     obj = findata.listing_EoDTimeseries(query2, [listing], start_date)
+#     dates = []
+#     volumes = []
+#     print_object_attributes_timeseries(dates, volumes, obj)
 
-st.write(res)
-
-if submit_button2:
-    obj = findata.listing_EoDTimeseries(query2, [listing], start_date)
-    dates = []
-    volumes = []
-    print_object_attributes_timeseries(dates, volumes, obj)
-
-    # plot the dates and volumes using plotly   
-    fig = go.Figure(data=go.Scatter(x=dates, y=volumes, mode='lines+markers'))
-    # add title to the plot
-    fig.update_layout(
-        title={
-            'text': "Volume of VALOR_BC stock",
-            'y':0.9,
-            'x':0.5,
-            'xanchor': 'center',
-            'yanchor': 'top'})
+#     # plot the dates and volumes using plotly   
+#     fig = go.Figure(data=go.Scatter(x=dates, y=volumes, mode='lines+markers'))
+#     # add title to the plot
+#     fig.update_layout(
+#         title={
+#             'text': "Volume of VALOR_BC stock",
+#             'y':0.9,
+#             'x':0.5,
+#             'xanchor': 'center',
+#             'yanchor': 'top'})
     
-    st.plotly_chart(fig, use_container_width=True)
+#     st.plotly_chart(fig, use_container_width=True)
