@@ -3,3 +3,4 @@ ipython
 requests
 urllib3
 plotly
+streamlit-chat

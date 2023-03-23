@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_chat import message
 import requests
 import urllib
 import json
@@ -46,7 +47,7 @@ st.set_page_config(
 )
 
 # st.title('Algaeia')
-st.markdown("# 💸 Financial Literacy Platform for the Next Generation")
+st.markdown("# 🗨️ Chatbot")
 st.markdown("Welcome to *_Cutting Edge_*! "
             "Read more about our project on [GitHub](https://github.com/nathanyaqueby/start-hack-2023).")
 
@@ -303,3 +304,40 @@ if submit_button2:
             'yanchor': 'top'})
     
     st.plotly_chart(fig, use_container_width=True)
+
+API_URL = "https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill"
+headers = {"Authorization": st.secrets['api_key']}
+
+
+if 'generated' not in st.session_state:
+    st.session_state['generated'] = []
+
+if 'past' not in st.session_state:
+    st.session_state['past'] = []
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+
+
+input_text = st.text_input("You: ","I need help building a sustainable company", key="input")
+# add a button next to the input field
+user_input = st.button("Send", key="send")
+
+if user_input:
+    output = query({
+        "inputs": {
+            "past_user_inputs": st.session_state.past,
+            "generated_responses": st.session_state.generated,
+            "text": user_input,
+        },"parameters": {"repetition_penalty": 1.33},
+    })
+
+    st.session_state.past.append(user_input)
+    st.session_state.generated.append(output["generated_text"])
+
+if st.session_state['generated']:
+
+    for i in range(len(st.session_state['generated'])-1, -1, -1):
+        message(st.session_state["generated"][i], key=str(i))
+        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
