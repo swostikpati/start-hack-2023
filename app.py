@@ -258,8 +258,7 @@ def print_object_attributes_timeseries(highs, lows, days, obj:object, tab_level:
                 # print(f"{space}{attr:<{min_attr_length}}: {value}")  
     
     # if length of dates and volumes is greater than 0, return them
-    if len(highs) == days & len(lows) == days:
-        return highs, lows
+    return highs, lows
 
 ######################### DASHBOARD #########################    
 
@@ -299,8 +298,6 @@ if submit_button:
 
     # take the difference between the start and end date to count how many days there are
     days = (datetime.datetime.strptime(end_date, "%Y-%m-%d") - datetime.datetime.strptime(start_date, "%Y-%m-%d")).days
-
-    st.write("Days", days)
 
     # for each company in the list, get the company information
     for company in options:
