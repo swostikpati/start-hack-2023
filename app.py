@@ -313,7 +313,9 @@ if submit_button:
 
         # append the difference between each high and low to the list "decimals"
         decimals = [(high[i]-low[i]) for i in range(len(high))]
-        decimals /= max(decimals)
+        
+        # divide all elements in decimals by the maximum element in decimals
+        decimals = [i/max(decimals) for i in decimals]
 
         # append the difference between each high and low to the list "diffs"
         diffs.append(decimals)
