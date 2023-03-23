@@ -34,6 +34,7 @@ def add_page(main_script_path_str, page_name):
     pages = get_pages(main_script_path_str)
     main_script_path = Path(main_script_path_str)
     pages_dir = main_script_path.parent / "pages"
+    st.write(list([pages_dir.glob("*.py")]))
     script_path = [f for f in pages_dir.glob("*.py") if f.name.find(page_name) != -1][0]
     script_path_str = str(script_path.resolve())
     pi, pn = page_icon_and_name(script_path)
