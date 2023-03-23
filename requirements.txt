@@ -2,3 +2,4 @@ streamlit
 ipython
 requests
 urllib3
+plotly

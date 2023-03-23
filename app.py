@@ -5,6 +5,8 @@ import json
 from IPython.core.display import display, HTML, JSON
 from types import SimpleNamespace
 import logging
+import plotly.graph_objects as go
+import os
 
 ############ page config
 st.set_page_config(
@@ -159,6 +161,8 @@ class FinancialDataAPI:
     
 findata = FinancialDataAPI()
 
+######################### print_object_attributes #########################
+
 def print_object_attributes(obj:object, tab_level:int=0, min_attr_length:int=30):
     if obj is None: return
     space_sep = "  "
@@ -180,7 +184,43 @@ def print_object_attributes(obj:object, tab_level:int=0, min_attr_length:int=30)
                 if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
                 print_object_attributes(value, tab_level+1, adjusted_min_attr_length)
             else:
-                st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")      
+                st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")     
+
+######################### print_object_attributes (time series) ######################### 
+
+def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int=0, min_attr_length:int=30):
+    if obj is None: return
+    space_sep = "  "
+    space = space_sep*tab_level
+    
+    if type(obj) == list:
+        for o in obj:
+            if type(o) == object or type(o) == SimpleNamespace:
+                print_object_attributes(dates, volumes, o, tab_level+1, min_attr_length)
+                # print()
+            # else:
+            #     print(f"{space}{o:<{min_attr_length}}")
+    else:
+        for attr, value in obj.__dict__.items():
+            if type(value) == object or type(value) == SimpleNamespace or type(value) == list:
+                # print(f"{space}{attr}")
+
+                adjusted_min_attr_length = min_attr_length - (len(space_sep)*(tab_level+1))
+                if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
+                print_object_attributes(dates, volumes, value, tab_level+1, adjusted_min_attr_length)
+            else:
+                if attr == "sessionDate":
+                    dates.append(value)
+                if attr == "volume":
+                    volumes.append(value)
+                
+                # if dates has 2 elements more than volumes, then remove the last element from dates
+                if len(dates) > len(volumes) + 1:
+                    dates.pop()
+                
+                # print(f"{space}{attr:<{min_attr_length}}: {value}")  
+
+######################### DASHBOARD #########################    
 
 # create an input bar for the user to enter the query and only print the results if the user presses enter
 query = st.text_input("Enter a query", "Apple")
@@ -188,3 +228,21 @@ query = st.text_input("Enter a query", "Apple")
 if query:
     obj = findata.text_search(query)
     print_object_attributes(obj)
+
+obj = findata.listing_EoDTimeseries("VALOR_BC", ["1222171_4"], "2022-07-01")
+dates = []
+volumes = []
+print_object_attributes_timeseries(dates, volumes, obj)
+
+# plot the dates and volumes using plotly   
+fig = go.Figure(data=go.Scatter(x=dates, y=volumes, mode='lines+markers'))
+st.plotly_chart(fig)
+
+# add title to the plot
+fig.update_layout(
+    title={
+        'text': "Volume of VALOR_BC stock",
+        'y':0.9,
+        'x':0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'})
