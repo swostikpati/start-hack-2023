@@ -46,7 +46,6 @@ st.set_page_config(
     }
 )
 
-# st.title('Algaeia')
 st.markdown("# 💸 Financial Literacy Platform for the Next Generation")
 st.markdown("Welcome to *_Cutting Edge_*! "
             "Read more about our project on [GitHub](https://github.com/nathanyaqueby/start-hack-2023).")
@@ -189,7 +188,7 @@ findata = FinancialDataAPI()
 
 ######################### print_object_attributes #########################
 
-def print_object_attributes(names, obj:object, tab_level:int=0, min_attr_length:int=30):
+def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_attr_length:int=30):
     if obj is None: return
     space_sep = "  "
     space = space_sep*tab_level
@@ -197,7 +196,7 @@ def print_object_attributes(names, obj:object, tab_level:int=0, min_attr_length:
     if type(obj) == list:
         for o in obj:
             if type(o) == object or type(o) == SimpleNamespace:
-                print_object_attributes(names, o, tab_level+1, min_attr_length)
+                print_object_attributes_text(valors, bcs, o, tab_level+1, min_attr_length)
                 st.markdown("")
             else:
                 st.markdown(f"{space}{o:<{min_attr_length}}")
@@ -208,15 +207,21 @@ def print_object_attributes(names, obj:object, tab_level:int=0, min_attr_length:
 
                 adjusted_min_attr_length = min_attr_length - (len(space_sep)*(tab_level+1))
                 if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
-                print_object_attributes(names, value, tab_level+1, adjusted_min_attr_length)
+                print_object_attributes_text(valors, bcs, value, tab_level+1, adjusted_min_attr_length)
             else:
-                # if attr == "name":
-                #     names.append(value)
-                st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")     
+                if attr == "valor":
+                    valors.append(value)
+                if attr == "bc":
+                    bcs.append(value)
+                st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")    
+
+    # if length of valors and bcs is both 1, then return the value
+    if len(valors) == 1 and len(bcs) == 1:
+        return valors[0], bcs[0] 
 
 ######################### print_object_attributes (time series) ######################### 
 
-def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int=0, min_attr_length:int=30):
+def print_object_attributes_timeseries(highs, lows, obj:object, tab_level:int=0, min_attr_length:int=30):
     if obj is None: return
     space_sep = "  "
     space = space_sep*tab_level
@@ -224,7 +229,7 @@ def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int
     if type(obj) == list:
         for o in obj:
             if type(o) == object or type(o) == SimpleNamespace:
-                print_object_attributes_timeseries(dates, volumes, o, tab_level+1, min_attr_length)
+                print_object_attributes_timeseries(highs, lows, o, tab_level+1, min_attr_length)
                 # print()
             # else:
             #     print(f"{space}{o:<{min_attr_length}}")
@@ -235,18 +240,24 @@ def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int
 
                 adjusted_min_attr_length = min_attr_length - (len(space_sep)*(tab_level+1))
                 if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
-                print_object_attributes_timeseries(dates, volumes, value, tab_level+1, adjusted_min_attr_length)
+                print_object_attributes_timeseries(highs, lows, value, tab_level+1, adjusted_min_attr_length)
             else:
-                if attr == "sessionDate":
-                    dates.append(value)
-                if attr == "volume":
-                    volumes.append(value)
+                # if attr == "sessionDate":
+                #     dates.append(value)
+                # if attr == "volume":
+                #     volumes.append(value)
+                if attr == "high":
+                    highs.append(value)
+                if attr == "low":
+                    lows.append(value)
                 
-                # if dates has 2 elements more than volumes, then remove the last element from dates
-                if len(dates) > len(volumes) + 1:
-                    dates.pop()
+                # # if dates has 2 elements more than volumes, then remove the last element from dates
+                # if len(dates) > len(volumes) + 1:
+                #     dates.pop()
                 
                 # print(f"{space}{attr:<{min_attr_length}}: {value}")  
+    
+    return max(highs), min(lows)
 
 ######################### DASHBOARD #########################    
 
@@ -257,12 +268,6 @@ with st.sidebar.form(key='Form1'):
     # create a sidebar with a submit button
     st.title("🏢 Financial Data Query")
 
-    # # add an input bar in the sidebar for the user to enter the query
-    # query = st.text_input("Enter a company name", "Apple")
-
-    # # add a submit button to the sidebar
-    # submit_button = st.form_submit_button(label='Generate Report')
-
     options = st.multiselect(
     'Which companies would you like to see?',
     ['DKSH', 'Deloitte', 'Amazon', 'Nike', 'Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX'],
@@ -270,7 +275,7 @@ with st.sidebar.form(key='Form1'):
     )
 
     # add an input field for the user to enter the starting date
-    start_date = st.date_input("Enter a start date", datetime.date(2023, 7, 1))
+    start_date = st.date_input("Enter a start date", datetime.date(2023, 7, 1), max_value=datetime.date(2023, 3, 21))
 
     # save the date in the format YYYY-MM-DD
     start_date = start_date.strftime("%Y-%m-%d")
@@ -284,54 +289,28 @@ with st.sidebar.form(key='Form1'):
     # add a submit button to the sidebar
     submit_button = st.form_submit_button(label='Generate Report')
 
-
-# with st.sidebar.form(key='Form2'):
-#     # create a sidebar with a submit button
-#     st.title("📈 Financial Trends")
-
-#     # add an input bar in the sidebar for the user to enter the query
-#     query2 = st.text_input("Enter a company name", "VALOR_BC")
-
-#     # add a dropdown field for the user to select the listing
-#     listing = st.selectbox("Select a listing", ["1222171_4"])
-
-#     # add an input field for the user to enter the starting date
-#     start_date = st.date_input("Enter a start date", datetime.date(2022, 7, 1))
-
-#     # save the date in the format YYYY-MM-DD
-#     start_date = start_date.strftime("%Y-%m-%d")
-
-#     # add a submit button to the sidebar
-#     submit_button2 = st.form_submit_button(label='Plot Graph')
-
 if submit_button:
-    # print the first entry when appling text_search on each company in options
-    # st.write("hello")
-    # st.write("You picked: ", options)
     video_file = open('trailer.mp4', 'rb')
     video_bytes = video_file.read()
 
+    diffs = []
+
+    # for each company in the list, get the company information
+    for company in options:
+
+        obj = findata.text_search(company)
+        valor, bc = print_object_attributes_text(obj)
+
+        # get the EoD timeseries for the company
+        obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valor}_{bc}"], start_date, end_date)
+        high, low = print_object_attributes_timeseries(obj)
+
+        # append the difference between each high and low to the list "decimals"
+        decimals = [(high[i]-low[i])/(max(high)-min(low)) for i in range(len(high))]
+
+        # append the difference between each high and low to the list "diffs"
+        diffs.append(decimals)
+
+    st.write("Differences: ", diffs)
+
     st.video(video_bytes)
-    # for company in options:
-    #     obj = findata.text_search(company)
-    #     print_object_attributes(obj[0])
-    #     st.markdown("")
-
-# if submit_button2:
-#     obj = findata.listing_EoDTimeseries(query2, [listing], start_date)
-#     dates = []
-#     volumes = []
-#     print_object_attributes_timeseries(dates, volumes, obj)
-
-#     # plot the dates and volumes using plotly   
-#     fig = go.Figure(data=go.Scatter(x=dates, y=volumes, mode='lines+markers'))
-#     # add title to the plot
-#     fig.update_layout(
-#         title={
-#             'text': "Volume of VALOR_BC stock",
-#             'y':0.9,
-#             'x':0.5,
-#             'xanchor': 'center',
-#             'yanchor': 'top'})
-    
-#     st.plotly_chart(fig, use_container_width=True)
