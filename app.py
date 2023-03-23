@@ -253,36 +253,36 @@ def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int
 # add image to the sidebar
 st.sidebar.image("SIX_CUTTINGEDGE.png", use_column_width=True)
 
-with st.sidebar.form(key='Form1'):
-    # create a sidebar with a submit button
-    st.title("🏢 Financial Data Query")
+# with st.sidebar.form(key='Form1'):
+# create a sidebar with a submit button
+# st.title("🏢 Financial Data Query")
 
-    # # add an input bar in the sidebar for the user to enter the query
-    # query = st.text_input("Enter a company name", "Apple")
+# # add an input bar in the sidebar for the user to enter the query
+# query = st.text_input("Enter a company name", "Apple")
 
-    # # add a submit button to the sidebar
-    # submit_button = st.form_submit_button(label='Generate Report')
+# # add a submit button to the sidebar
+# submit_button = st.form_submit_button(label='Generate Report')
 
-    options = st.multiselect(
-    'Which companies would you like to see?',
-    ['DKSH', 'Deloitte', 'Amazon', 'Nike'],
-    default=['Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX']
-    )
+options = st.multiselect(
+'Which companies would you like to see?',
+['DKSH', 'Deloitte', 'Amazon', 'Nike'],
+default=['Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX']
+)
 
-    # add an input field for the user to enter the starting date
-    start_date = st.date_input("Enter a start date", datetime.date(2023, 7, 1))
+# add an input field for the user to enter the starting date
+start_date = st.date_input("Enter a start date", datetime.date(2023, 7, 1))
 
-    # save the date in the format YYYY-MM-DD
-    start_date = start_date.strftime("%Y-%m-%d")
+# save the date in the format YYYY-MM-DD
+start_date = start_date.strftime("%Y-%m-%d")
 
-    # add an input field for the user to enter the starting date
-    end_date = st.date_input("Enter an end date", datetime.date(2023, 3, 22), max_value=datetime.date(2023, 3, 22))
+# add an input field for the user to enter the starting date
+end_date = st.date_input("Enter an end date", datetime.date(2023, 3, 22), max_value=datetime.date(2023, 3, 22))
 
-    # save the date in the format YYYY-MM-DD
-    end_date = end_date.strftime("%Y-%m-%d")
+# save the date in the format YYYY-MM-DD
+end_date = end_date.strftime("%Y-%m-%d")
 
-    # add a submit button to the sidebar
-    submit_button = st.form_submit_button(label='Generate Report')
+# add a submit button to the sidebar
+submit_button = st.form_submit_button(label='Generate Report')
 
 
 # with st.sidebar.form(key='Form2'):
