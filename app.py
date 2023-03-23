@@ -7,7 +7,7 @@ from IPython.core.display import display, HTML, JSON
 from types import SimpleNamespace
 import logging
 import plotly.graph_objects as go
-import os
+import webbrowser
 import datetime
 
 ############ page config
@@ -259,16 +259,22 @@ with st.sidebar.form(key='Form1'):
     end_date = end_date.strftime("%Y-%m-%d")
 
     # add a submit button to the sidebar
-    submit_button = st.form_submit_button(label='Generate VR world', use_container_width=True)
-
-with st.sidebar.form(key='Form2'):
-    st.title("💡 Tips & Tricks")
-    st.markdown("Click on the VR button in the bottom right corner to access the world using your favorite VR glasses!")
+    submit_button = st.form_submit_button(label='Generate VR world', use_container_width=True, type="primary")
 
 st.sidebar.image("START_Logo.png", use_column_width=True)
 
 if submit_button:
-        
+
+    with st.sidebar.form(key='Form2'):
+
+        st.title("💡 Tips & Tricks")
+        st.markdown("Click on the VR button in the bottom right corner to access the world using your VR glasses!")
+        submit_button2 = st.form_submit_button(label="Dive in", use_container_width=True, type="primary")
+
+    if submit_button2:
+        url = 'https://www.sararutz.ch/cuttingedge/index.html'
+        webbrowser.open_new_tab(url)
+
     with st.spinner('Loading...'):
 
         video_file = open('trailer.mp4', 'rb')
