@@ -275,7 +275,7 @@ with st.sidebar.form(key='Form1'):
     )
 
     # add an input field for the user to enter the starting date
-    start_date = st.date_input("Enter a start date", datetime.date(2023, 7, 1), max_value=datetime.date(2023, 3, 21))
+    start_date = st.date_input("Enter a start date", datetime.date(2022, 7, 1), max_value=datetime.date(2023, 3, 21))
 
     # save the date in the format YYYY-MM-DD
     start_date = start_date.strftime("%Y-%m-%d")
