@@ -12,20 +12,27 @@ import datetime
 
 ############ page config
 st.set_page_config(
-    page_title="Cutting Edge - START Hack 2023",
+    page_title="FinVerse - Team Cutting Edge - START Hack 2023",
     page_icon="💸",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
         'Get Help': 'https://github.com/nathanyaqueby/start-hack-2023',
         'Report a bug': "https://github.com/nathanyaqueby/start-hack-2023",
-        'About': "A digital financial literacy platform for the next generation."
+        'About': """
+        In today's world, financial literacy is more important than ever. Unfortunately, many people lack access to the resources and knowledge needed to manage their finances effectively. This is where FinVerse comes in.
+        FinVerse is designed to make financial literacy accessible to everyone. By using virtual reality technology, we have created a platform that is engaging, interactive, and easy to use. Our application is specifically designed to help increase inclusivity of financial literacy by making it accessible to the common people.
+        With FinVerse, users can explore different financial concepts and strategies in a way that is both fun and informative. Our application allows users to simulate real-life financial scenarios, experiment with different investment strategies, and learn about the basics of budgeting and saving.
+        Our team has worked tirelessly to ensure that FinVerse is user-friendly, visually appealing, and most importantly, effective. By combining the power of virtual reality with expert financial advice, we believe that FinVerse has the potential to revolutionize financial literacy education.
+        We are excited to participate in this hackathon and look forward to showcasing the power of FinVerse.
+        """
     }
 )
 
-st.markdown("# 💸 Financial Literacy Platform for the Next Generation")
-st.markdown("Welcome to *_Cutting Edge_*! "
-            "Read more about our project on [GitHub](https://github.com/nathanyaqueby/start-hack-2023).")
+st.markdown("## Virtual Reality-based Financial Literacy Web Application")
+st.markdown("Welcome to *_FinVerse_*! "
+            "Dive into the VR world by running the generator on the left sidebar and use keypads to walk through your financial universe."
+            " Read more about our project on [GitHub](https://github.com/nathanyaqueby/start-hack-2023). Enjoy!")
 
 ##############################################
 
