@@ -29,7 +29,7 @@ st.set_page_config(
     }
 )
 
-st.markdown("## Virtual Reality-based Financial Literacy Web Application")
+st.markdown("## Virtual Reality-Based Financial Literacy Web Application")
 st.markdown("Welcome to *_FinVerse_*! "
             "Dive into the VR world by running the generator on the left sidebar and use keypads to walk through your financial universe."
             " Read more about our project on [GitHub](https://github.com/nathanyaqueby/start-hack-2023). Enjoy!")
@@ -261,19 +261,13 @@ with st.sidebar.form(key='Form1'):
     # add a submit button to the sidebar
     submit_button = st.form_submit_button(label='Generate VR world', use_container_width=True, type="primary")
 
+    # add tips to the sidebar
+    st.markdown("<b>💡 Tips:</b>", unsafe_allow_html=True)
+    st.markdown("Use VR glasses to experience the world in 3D! Test it in our [randomly generated world](https://www.sararutz.ch/cuttingedge/index.html).")
+
 st.sidebar.image("START_Logo.png", use_column_width=True)
 
 if submit_button:
-
-    with st.sidebar.form(key='Form2'):
-
-        st.title("💡 Tips & Tricks")
-        st.markdown("Click on the VR button in the bottom right corner to access the world using your VR glasses!")
-        submit_button2 = st.form_submit_button(label="Dive in", use_container_width=True, type="primary")
-
-    if submit_button2:
-        url = 'https://www.sararutz.ch/cuttingedge/index.html'
-        webbrowser.open_new_tab(url)
 
     with st.spinner('Loading...'):
 
