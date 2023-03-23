@@ -304,12 +304,15 @@ if submit_button:
         highs = []
         lows = []
 
-        obj = findata.text_search(company)
-        valor, bc = print_object_attributes_text(valors, bcs, obj)
+        # while highs and lows are empty, get the company information
+        while len(highs) == 0 and len(lows) == 0:
 
-        # get the EoD timeseries for the company
-        obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valor}_{bc}"], start_date, end_date)
-        high, low = print_object_attributes_timeseries(highs, lows, obj)
+            obj = findata.text_search(company)
+            valor, bc = print_object_attributes_text(valors, bcs, obj)
+
+            # get the EoD timeseries for the company
+            obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valor}_{bc}"], start_date, end_date)
+            high, low = print_object_attributes_timeseries(highs, lows, obj)
 
         # append the difference between each high and low to the list "decimals"
         decimals = [(high[i]-low[i]) for i in range(len(high))]
