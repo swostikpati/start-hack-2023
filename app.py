@@ -264,7 +264,7 @@ with st.sidebar.form(key='Form1'):
     # add tips to the sidebar
     st.markdown("""<b>💡 Tips:</b><br>
                 Use VR glasses to experience the world in 3D!
-                Test it in our [randomly generated world](https://www.sararutz.ch/cuttingedge/index.html).
+                Try our [randomly generated world](https://www.sararutz.ch/cuttingedge/index.html).
                 """, unsafe_allow_html=True)
 
 st.sidebar.image("START_Logo.png", use_column_width=True)
