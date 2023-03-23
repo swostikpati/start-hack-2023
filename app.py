@@ -226,32 +226,32 @@ def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int
 
 with st.sidebar.form(key='Form1'):
     # create a sidebar with a submit button
-    st.sidebar.title("Financial Data Query")
+    st.title("Financial Data Query")
 
     # add an input bar in the sidebar for the user to enter the query
-    query = st.sidebar.text_input("Enter a company name", "Apple")
+    query = st.text_input("Enter a company name", "Apple")
 
     # add a submit button to the sidebar
-    submit_button = st.sidebar.form_submit_button(label='Generate Report')
+    submit_button = st.form_submit_button(label='Generate Report')
 
 with st.sidebar.form(key='Form2'):
     # create a sidebar with a submit button
-    st.sidebar.title("Financial Trends")
+    st.title("Financial Trends")
 
     # add an input bar in the sidebar for the user to enter the query
-    query2 = st.sidebar.text_input("Enter a company name", "VALOR_BC")
+    query2 = st.text_input("Enter a company name", "VALOR_BC")
 
     # add a dropdown field for the user to select the listing
-    listing = st.sidebar.selectbox("Select a listing", ["1222171_4"])
+    listing = st.selectbox("Select a listing", ["1222171_4"])
 
     # add an input field for the user to enter the starting date
-    start_date = st.sidebar.date_input("Enter a start date", datetime.date(2022, 7, 1))
+    start_date = st.date_input("Enter a start date", datetime.date(2022, 7, 1))
 
     # save the date in the format YYYY-MM-DD
     start_date = start_date.strftime("%Y-%m-%d")
 
     # add a submit button to the sidebar
-    submit_button2 = st.sidebar.form_submit_button(label='Generate Report')
+    submit_button2 = st.form_submit_button(label='Generate Report')
 
 if submit_button:
     obj = findata.text_search(query)
