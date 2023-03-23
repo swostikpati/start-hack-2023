@@ -238,7 +238,7 @@ st.sidebar.image("SIX_CUTTINGEDGE.png", use_column_width=True)
 
 with st.sidebar.form(key='Form1'):
     # create a sidebar with a submit button
-    st.title("📈 3D stock dashboard")
+    st.title("📈 3D Stock Dashboard")
 
     options = st.multiselect(
     'Which companies would you like to see?',
