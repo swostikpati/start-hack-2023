@@ -334,7 +334,7 @@ if submit_button:
     for i in range(len(diffs)):
         fig.add_trace(go.Scatter(x=[i for i in range(len(diffs[i]))], y=diffs[i], name=options[i]))
     fig.update_layout(title="Differences between highs and lows", xaxis_title="Days", yaxis_title="Differences")
-    st.plotly_chart(fig)
-    
+    st.plotly_chart(fig, use_container_width=True)
+
 
     st.video(video_bytes)
