@@ -196,7 +196,7 @@ def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int
     if type(obj) == list:
         for o in obj:
             if type(o) == object or type(o) == SimpleNamespace:
-                print_object_attributes(dates, volumes, o, tab_level+1, min_attr_length)
+                print_object_attributes_timeseries(dates, volumes, o, tab_level+1, min_attr_length)
                 # print()
             # else:
             #     print(f"{space}{o:<{min_attr_length}}")
@@ -207,7 +207,7 @@ def print_object_attributes_timeseries(dates, volumes, obj:object, tab_level:int
 
                 adjusted_min_attr_length = min_attr_length - (len(space_sep)*(tab_level+1))
                 if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
-                print_object_attributes(dates, volumes, value, tab_level+1, adjusted_min_attr_length)
+                print_object_attributes_timeseries(dates, volumes, value, tab_level+1, adjusted_min_attr_length)
             else:
                 if attr == "sessionDate":
                     dates.append(value)
