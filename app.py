@@ -312,10 +312,10 @@ if submit_button:
 
             # get the EoD timeseries for the company
             obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valor}_{bc}"], start_date, end_date)
-            high, low = print_object_attributes_timeseries(highs, lows, obj)
+            highs, lows = print_object_attributes_timeseries(highs, lows, obj)
 
         # append the difference between each high and low to the list "decimals"
-        decimals = [(high[i]-low[i]) for i in range(len(high))]
+        decimals = [(highs[i]-lows[i]) for i in range(len(highs))]
         
         # divide all elements in decimals by the maximum element in decimals
         decimals = [i/max(decimals) for i in decimals]
