@@ -298,121 +298,124 @@ if submit_button:
             diffs.append(decimals)
 
         # st.write("Differences: ", diffs)
-        components.html(
-            '''
-            <html lang="en">
-                <head>
-                    <title>WebXR Application</title>
-                    <link rel="icon" type="image/png" href="favicon.ico"/>
-                    <meta name="description" content="3D Application">
-                    <meta charset="utf-8">
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-                    <script type="text/javascript" src="js/webxr.js"></script>
-                    <script type="text/javascript" src="js/joystick.js"></script>
-                    <script type="text/javascript" src="js/camera-cube-env.js"></script>
+
+        components.html('<iframe src="https://www.sararutz.ch/cuttingedge/index.html" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>', height=700)
+
+        # components.html(
+        #     '''
+        #     <html lang="en">
+        #         <head>
+        #             <title>WebXR Application</title>
+        #             <link rel="icon" type="image/png" href="favicon.ico"/>
+        #             <meta name="description" content="3D Application">
+        #             <meta charset="utf-8">
+        #             <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        #             <meta name="viewport" content="width=device-width, initial-scale=1">
+        #             <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        #             <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+        #             <script type="text/javascript" src="js/webxr.js"></script>
+        #             <script type="text/javascript" src="js/joystick.js"></script>
+        #             <script type="text/javascript" src="js/camera-cube-env.js"></script>
                     
-                    <link rel="stylesheet" type="text/css" href="style.css">
-                </head>
-                <body onload="init();">
-                    <a-scene   shadow="type: basic; autoUpdate: false;" renderer="antialias: false; colorManagement: false; physicallyCorrectLights: false;">
-                        <!-- Assets -->
-                        <a-assets>
-                            <a-asset-item id="amazon" src="./assets/amazon.gltf"></a-asset-item>
-                            <a-asset-item id="apple" src="./assets/apple.gltf"></a-asset-item>
-                            <a-asset-item id="boeing" src="./assets/boeing.gltf"></a-asset-item>
-                            <a-asset-item id="Cube" src="./assets/Cube.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.001" src="./assets/Cube.001.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.002" src="./assets/Cube.002.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.003" src="./assets/Cube.003.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.004" src="./assets/Cube.004.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.005" src="./assets/Cube.005.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.006" src="./assets/Cube.006.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.007" src="./assets/Cube.007.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>
-                            <a-asset-item id="Cube.009" src="./assets/Cube.009.gltf"></a-asset-item>
-                            <a-asset-item id="deloitte " src="./assets/deloitte .gltf"></a-asset-item>
-                            <a-asset-item id="DKSH" src="./assets/DKSH.gltf"></a-asset-item>
-                            <a-asset-item id="google " src="./assets/google .gltf"></a-asset-item>
-                            <a-asset-item id="meta" src="./assets/meta.gltf"></a-asset-item>
-                            <a-asset-item id="nike " src="./assets/nike .gltf"></a-asset-item>
-                            <a-asset-item id="Plane" src="./assets/Plane.gltf"></a-asset-item>
-                            <a-asset-item id="samsung " src="./assets/samsung .gltf"></a-asset-item>
-                            <a-asset-item id="six" src="./assets/six.gltf"></a-asset-item>
-                            <img id="sky"                 src="./resources/sky.jpg">
-                            <img id="icon-play"           src="./resources/play.png">
-                            <img id="icon-pause"          src="./resources/pause.png">
-                            <img id="icon-play-skip-back" src="./resources/play-skip-back.png">
-                            <img id="icon-mute"           src="./resources/mute.png">
-                            <img id="icon-volume-low"     src="./resources/volume-low.png">
-                            <img id="icon-volume-high"    src="./resources/volume-high.png">
-                        </a-assets>
+        #             <link rel="stylesheet" type="text/css" href="style.css">
+        #         </head>
+        #         <body onload="init();">
+        #             <a-scene   shadow="type: basic; autoUpdate: false;" renderer="antialias: false; colorManagement: false; physicallyCorrectLights: false;">
+        #                 <!-- Assets -->
+        #                 <a-assets>
+        #                     <a-asset-item id="amazon" src="./assets/amazon.gltf"></a-asset-item>
+        #                     <a-asset-item id="apple" src="./assets/apple.gltf"></a-asset-item>
+        #                     <a-asset-item id="boeing" src="./assets/boeing.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube" src="./assets/Cube.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.001" src="./assets/Cube.001.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.002" src="./assets/Cube.002.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.003" src="./assets/Cube.003.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.004" src="./assets/Cube.004.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.005" src="./assets/Cube.005.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.006" src="./assets/Cube.006.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.007" src="./assets/Cube.007.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.008" src="./assets/Cube.008.gltf"></a-asset-item>
+        #                     <a-asset-item id="Cube.009" src="./assets/Cube.009.gltf"></a-asset-item>
+        #                     <a-asset-item id="deloitte " src="./assets/deloitte .gltf"></a-asset-item>
+        #                     <a-asset-item id="DKSH" src="./assets/DKSH.gltf"></a-asset-item>
+        #                     <a-asset-item id="google " src="./assets/google .gltf"></a-asset-item>
+        #                     <a-asset-item id="meta" src="./assets/meta.gltf"></a-asset-item>
+        #                     <a-asset-item id="nike " src="./assets/nike .gltf"></a-asset-item>
+        #                     <a-asset-item id="Plane" src="./assets/Plane.gltf"></a-asset-item>
+        #                     <a-asset-item id="samsung " src="./assets/samsung .gltf"></a-asset-item>
+        #                     <a-asset-item id="six" src="./assets/six.gltf"></a-asset-item>
+        #                     <img id="sky"                 src="./resources/sky.jpg">
+        #                     <img id="icon-play"           src="./resources/play.png">
+        #                     <img id="icon-pause"          src="./resources/pause.png">
+        #                     <img id="icon-play-skip-back" src="./resources/play-skip-back.png">
+        #                     <img id="icon-mute"           src="./resources/mute.png">
+        #                     <img id="icon-volume-low"     src="./resources/volume-low.png">
+        #                     <img id="icon-volume-high"    src="./resources/volume-high.png">
+        #                 </a-assets>
 
-                        <!-- Entities -->
+        #                 <!-- Entities -->
                         
-                        <a-entity id="#amazon" gltf-model="#amazon"  scale="1 1 1" position="1.1128391027450562 4.325775146484375 14.492897033691406" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#apple" gltf-model="#apple"  scale="1 1 1" position="0.8324559926986694 4.1404709815979 2.7704522609710693" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#boeing" gltf-model="#boeing"  scale="1 1 1" position="0.8865522146224976 5.622444152832031 11.70455551147461" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube" gltf-model="#Cube"  scale="1 1 1" position="-0.22648416459560394 2.8150224685668945 2.756023645401001" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.001" gltf-model="#Cube.001"  scale="1 1 1" position="-0.22648416459560394 3.5149612426757812 5.844135284423828" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.002" gltf-model="#Cube.002"  scale="1 1 1" position="0.0 3.4247751235961914 -0.055373240262269974" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.003" gltf-model="#Cube.003"  scale="1 1 1" position="-0.22648416459560394 3.226078987121582 -2.9352900981903076" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.004" gltf-model="#Cube.004"  scale="1 1 1" position="-0.22648416459560394 3.5149612426757812 -6.4891157150268555" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.005" gltf-model="#Cube.005"  scale="1 1 1" position="-0.22648416459560394 2.8150224685668945 8.732294082641602" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.006" gltf-model="#Cube.006"  scale="1 1 1" position="-0.22648416459560394 2.8150224685668945 14.422906875610352" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.007" gltf-model="#Cube.007"  scale="1 1 1" position="-0.22648416459560394 3.5149612426757812 11.534748077392578" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.008" gltf-model="#Cube.008"  scale="1 1 1" position="-0.22648416459560394 3.226078987121582 -12.412830352783203" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Cube.009" gltf-model="#Cube.009"  scale="1 1 1" position="0.0 3.4247751235961914 -9.532913208007812" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#deloitte " gltf-model="#deloitte "  scale="1 1 1" position="0.7883981466293335 4.892899513244629 -2.914421558380127" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#DKSH" gltf-model="#DKSH"  scale="1 1 1" position="0.846261739730835 4.84961462020874 -12.34501838684082" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#google " gltf-model="#google "  scale="1 1 1" position="1.0024456977844238 5.113276481628418 -0.0" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#meta" gltf-model="#meta"  scale="1 1 1" position="1.2688511610031128 5.42894983291626 -9.600595474243164" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#nike " gltf-model="#nike "  scale="1 1 1" position="0.7864484786987305 5.125548362731934 5.912516117095947" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#Plane" gltf-model="#Plane"  scale="1 1 1" position="0.0 0.0 -0.0" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#samsung " gltf-model="#samsung "  scale="1 1 1" position="0.7934677004814148 4.5191802978515625 8.834068298339844" visible="true" shadow="cast: false" ></a-entity>
-                        <a-entity id="#six" gltf-model="#six"  scale="1 1 1" position="0.8898735046386719 5.763146877288818 -6.4537248611450195" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#amazon" gltf-model="#amazon"  scale="1 1 1" position="1.1128391027450562 4.325775146484375 14.492897033691406" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#apple" gltf-model="#apple"  scale="1 1 1" position="0.8324559926986694 4.1404709815979 2.7704522609710693" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#boeing" gltf-model="#boeing"  scale="1 1 1" position="0.8865522146224976 5.622444152832031 11.70455551147461" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube" gltf-model="#Cube"  scale="1 1 1" position="-0.22648416459560394 2.8150224685668945 2.756023645401001" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.001" gltf-model="#Cube.001"  scale="1 1 1" position="-0.22648416459560394 3.5149612426757812 5.844135284423828" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.002" gltf-model="#Cube.002"  scale="1 1 1" position="0.0 3.4247751235961914 -0.055373240262269974" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.003" gltf-model="#Cube.003"  scale="1 1 1" position="-0.22648416459560394 3.226078987121582 -2.9352900981903076" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.004" gltf-model="#Cube.004"  scale="1 1 1" position="-0.22648416459560394 3.5149612426757812 -6.4891157150268555" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.005" gltf-model="#Cube.005"  scale="1 1 1" position="-0.22648416459560394 2.8150224685668945 8.732294082641602" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.006" gltf-model="#Cube.006"  scale="1 1 1" position="-0.22648416459560394 2.8150224685668945 14.422906875610352" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.007" gltf-model="#Cube.007"  scale="1 1 1" position="-0.22648416459560394 3.5149612426757812 11.534748077392578" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.008" gltf-model="#Cube.008"  scale="1 1 1" position="-0.22648416459560394 3.226078987121582 -12.412830352783203" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Cube.009" gltf-model="#Cube.009"  scale="1 1 1" position="0.0 3.4247751235961914 -9.532913208007812" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#deloitte " gltf-model="#deloitte "  scale="1 1 1" position="0.7883981466293335 4.892899513244629 -2.914421558380127" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#DKSH" gltf-model="#DKSH"  scale="1 1 1" position="0.846261739730835 4.84961462020874 -12.34501838684082" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#google " gltf-model="#google "  scale="1 1 1" position="1.0024456977844238 5.113276481628418 -0.0" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#meta" gltf-model="#meta"  scale="1 1 1" position="1.2688511610031128 5.42894983291626 -9.600595474243164" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#nike " gltf-model="#nike "  scale="1 1 1" position="0.7864484786987305 5.125548362731934 5.912516117095947" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#Plane" gltf-model="#Plane"  scale="1 1 1" position="0.0 0.0 -0.0" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#samsung " gltf-model="#samsung "  scale="1 1 1" position="0.7934677004814148 4.5191802978515625 8.834068298339844" visible="true" shadow="cast: false" ></a-entity>
+        #                 <a-entity id="#six" gltf-model="#six"  scale="1 1 1" position="0.8898735046386719 5.763146877288818 -6.4537248611450195" visible="true" shadow="cast: false" ></a-entity>
 
-                        <!-- Camera -->
-                        <a-entity id="player" 
-                            position="0 -0.2 0" 
-                            movement-controls="speed: 0.10000000149011612;">
-                            <a-entity id="camera" 
-                                camera="near: 0.001" 
-                                position="0 1.7000000476837158 0" 
-                                look-controls="pointerLockEnabled: true">
-                                    <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
-                                        position="0 0 -0.1"
-                                        geometry="primitive: circle; radius: 0.001;"
-                                        material="color: #CCC; shader: flat;"
-                                        >
-                                    </a-entity>
-                            </a-entity>
-                                <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
-                                <a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
-                        </a-entity>
+        #                 <!-- Camera -->
+        #                 <a-entity id="player" 
+        #                     position="0 -0.2 0" 
+        #                     movement-controls="speed: 0.10000000149011612;">
+        #                     <a-entity id="camera" 
+        #                         camera="near: 0.001" 
+        #                         position="0 1.7000000476837158 0" 
+        #                         look-controls="pointerLockEnabled: true">
+        #                             <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
+        #                                 position="0 0 -0.1"
+        #                                 geometry="primitive: circle; radius: 0.001;"
+        #                                 material="color: #CCC; shader: flat;"
+        #                                 >
+        #                             </a-entity>
+        #                     </a-entity>
+        #                         <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
+        #                         <a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
+        #                 </a-entity>
 
-                        <!-- Lights -->
+        #                 <!-- Lights -->
                         
-                        <a-entity position="0.5248908996582031 1.1606484651565552 -0.0" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="0.0 2.9586710929870605 2.8257946968078613" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="-0.523449182510376 2.8169617652893066 6.309124946594238" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="-0.5871739387512207 3.5962722301483154 -2.9193484783172607" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="-0.25771796703338623 2.711784601211548 8.935091972351074" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="-0.25771796703338623 3.973264455795288 -6.496705055236816" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="-0.25771796703338623 2.682612657546997 11.793471336364746" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="-0.25771796703338623 2.6372766494750977 14.843578338623047" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="-0.25771796703338623 3.0482330322265625 -9.426068305969238" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
-                        <a-entity position="-0.25771796703338623 1.8322162628173828 -12.441837310791016" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="0.5248908996582031 1.1606484651565552 -0.0" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="0.0 2.9586710929870605 2.8257946968078613" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="-0.523449182510376 2.8169617652893066 6.309124946594238" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="-0.5871739387512207 3.5962722301483154 -2.9193484783172607" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="-0.25771796703338623 2.711784601211548 8.935091972351074" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="-0.25771796703338623 3.973264455795288 -6.496705055236816" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="-0.25771796703338623 2.682612657546997 11.793471336364746" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="-0.25771796703338623 2.6372766494750977 14.843578338623047" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="-0.25771796703338623 3.0482330322265625 -9.426068305969238" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+        #                 <a-entity position="-0.25771796703338623 1.8322162628173828 -12.441837310791016" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
 
-                        <!-- Sky -->
-                        <a-sky color="#ECECEC"></a-sky>
-                    </a-scene>
-                </body>
-            </html>
-            '''
-            )
+        #                 <!-- Sky -->
+        #                 <a-sky color="#ECECEC"></a-sky>
+        #             </a-scene>
+        #         </body>
+        #     </html>
+        #     '''
+        #     )
 
         with st.expander("For the stock market experts"):
             # plot the differences in a single graph with multiple lines (one for each company)
