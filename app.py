@@ -197,13 +197,13 @@ def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_a
         for o in obj:
             if type(o) == object or type(o) == SimpleNamespace:
                 print_object_attributes_text(valors, bcs, o, tab_level+1, min_attr_length)
-                st.markdown("")
-            else:
-                st.markdown(f"{space}{o:<{min_attr_length}}")
+            #     st.markdown("")
+            # else:
+            #     st.markdown(f"{space}{o:<{min_attr_length}}")
     else:
         for attr, value in obj.__dict__.items():
             if type(value) == object or type(value) == SimpleNamespace or type(value) == list:
-                st.markdown(f"{space}{attr}")
+                # st.markdown(f"{space}{attr}")
 
                 adjusted_min_attr_length = min_attr_length - (len(space_sep)*(tab_level+1))
                 if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
@@ -213,10 +213,10 @@ def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_a
                     valors.append(value)
                 if attr == "bc":
                     bcs.append(value)
-                st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")    
+                # st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")    
 
-    # if length of valors and bcs is both 1, then return the value
-    if len(valors) == 1 and len(bcs) == 1:
+    # if length of valors and bcs is greater than 0, return them
+    if len(valors) > 0 and len(bcs) > 0:
         return valors[0], bcs[0] 
 
 ######################### print_object_attributes (time series) ######################### 
