@@ -189,7 +189,7 @@ findata = FinancialDataAPI()
 ######################### print_object_attributes #########################
 
 def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_attr_length:int=30):
-    if obj is None: return valors[0], bcs[0] 
+    if obj is None: return
     space_sep = "  "
     space = space_sep*tab_level
     
@@ -215,9 +215,13 @@ def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_a
                     bcs.append(value)
                 # st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")    
 
+    # if length of valors and bcs is greater than 0, return them
+    if len(valors) > 0 and len(bcs) > 0:
+        return valors[0], bcs[0] 
+
 ######################### print_object_attributes (time series) ######################### 
 
-def print_object_attributes_timeseries(highs, lows, obj:object, tab_level:int=0, min_attr_length:int=30):
+def print_object_attributes_timeseries(highs, lows, days, obj:object, tab_level:int=0, min_attr_length:int=30):
     if obj is None: return
     space_sep = "  "
     space = space_sep*tab_level
@@ -225,7 +229,7 @@ def print_object_attributes_timeseries(highs, lows, obj:object, tab_level:int=0,
     if type(obj) == list:
         for o in obj:
             if type(o) == object or type(o) == SimpleNamespace:
-                print_object_attributes_timeseries(highs, lows, o, tab_level+1, min_attr_length)
+                print_object_attributes_timeseries(highs, lows, days, o, tab_level+1, min_attr_length)
                 # print()
             # else:
             #     print(f"{space}{o:<{min_attr_length}}")
@@ -236,7 +240,7 @@ def print_object_attributes_timeseries(highs, lows, obj:object, tab_level:int=0,
 
                 adjusted_min_attr_length = min_attr_length - (len(space_sep)*(tab_level+1))
                 if adjusted_min_attr_length < 0: adjusted_min_attr_length = 0
-                print_object_attributes_timeseries(highs, lows, value, tab_level+1, adjusted_min_attr_length)
+                print_object_attributes_timeseries(highs, lows, days, value, tab_level+1, adjusted_min_attr_length)
             else:
                 # if attr == "sessionDate":
                 #     dates.append(value)
@@ -254,8 +258,8 @@ def print_object_attributes_timeseries(highs, lows, obj:object, tab_level:int=0,
                 # print(f"{space}{attr:<{min_attr_length}}: {value}")  
     
     # if length of dates and volumes is greater than 0, return them
-    if len(highs) > 0 and len(lows) > 0:
-        return max(highs), min(lows)
+    if len(highs) == days & len(lows) == days:
+        return highs, lows
 
 ######################### DASHBOARD #########################    
 
@@ -293,6 +297,9 @@ if submit_button:
 
     diffs = []
 
+    # take the difference between the start and end date to count how many days there are
+    days = (datetime.datetime.strptime(end_date, "%Y-%m-%d") - datetime.datetime.strptime(start_date, "%Y-%m-%d")).days
+
     # for each company in the list, get the company information
     for company in options:
 
@@ -306,7 +313,7 @@ if submit_button:
 
         # get the EoD timeseries for the company
         obj = findata.listing_EoDTimeseries("VALOR_BC", [f"{valor}_{bc}"], start_date, end_date)
-        high, low = print_object_attributes_timeseries(highs, lows, obj)
+        high, low = print_object_attributes_timeseries(highs, lows, days, obj)
 
         # append the difference between each high and low to the list "decimals"
         decimals = [(high[i]-low[i])/(max(high)-min(low)) for i in range(len(high))]
