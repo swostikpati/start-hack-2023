@@ -231,7 +231,7 @@ st.sidebar.image("SIX_CUTTINGEDGE.png", use_column_width=True)
 
 with st.sidebar.form(key='Form1'):
     # create a sidebar with a submit button
-    st.title("📈 3D stock market dashboard")
+    st.title("📈 3D stock dashboard")
 
     options = st.multiselect(
     'Which companies would you like to see?',
@@ -252,7 +252,11 @@ with st.sidebar.form(key='Form1'):
     end_date = end_date.strftime("%Y-%m-%d")
 
     # add a submit button to the sidebar
-    submit_button = st.form_submit_button(label='Generate VR world')
+    submit_button = st.form_submit_button(label='Generate VR world', use_container_width=True)
+
+# with st.sidebar.form(key='Form2'):
+
+#     st.title("📄 Download report")
 
 if submit_button:
         
