@@ -189,7 +189,7 @@ findata = FinancialDataAPI()
 ######################### print_object_attributes #########################
 
 def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_attr_length:int=30):
-    if obj is None: return
+    if obj is None: return valors[0], bcs[0] 
     space_sep = "  "
     space = space_sep*tab_level
     
@@ -214,10 +214,6 @@ def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_a
                 if attr == "bc":
                     bcs.append(value)
                 # st.markdown(f"{space}{attr:<{min_attr_length}}: {value}")    
-
-    # if length of valors and bcs is greater than 0, return them
-    if len(valors) > 0 and len(bcs) > 0:
-        return valors[0], bcs[0] 
 
 ######################### print_object_attributes (time series) ######################### 
 
