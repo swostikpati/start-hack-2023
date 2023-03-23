@@ -1,6 +1,6 @@
 # 💸 FinVerse - START Hack 2023
 
-Globally, only 1-in-3 adults are 'financially literate'. Access to financial data and financial data insights are often presented in ways that are boring and difficult to interpret for the average user. ission is to make financial data easier to *interpret, interact, understand* and *visualize*.
+Globally, only 1-in-3 adults are 'financially literate'. Access to financial data and financial data insights are often presented in ways that are boring and difficult to interpret for the average user. Our mission is to make financial data easier to *interpret, interact, understand* and *visualize*.
 
 Presenting [FinVerse](https://six-cutting-edge.streamlit.app/), a VR financial literacy platform developed during the START Hack 2023.
 
