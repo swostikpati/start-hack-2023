@@ -300,6 +300,8 @@ if submit_button:
     # take the difference between the start and end date to count how many days there are
     days = (datetime.datetime.strptime(end_date, "%Y-%m-%d") - datetime.datetime.strptime(start_date, "%Y-%m-%d")).days
 
+    st.write("Days", days)
+
     # for each company in the list, get the company information
     for company in options:
 
