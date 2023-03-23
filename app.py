@@ -40,7 +40,7 @@ class FinancialDataAPI:
             "api-version": "2022-06-01"
         }
         self.session = requests.session()
-        certificate_path = 'API certificates\ch52991-hackathon1'
+        certificate_path = 'ch52991-hackathon1'
         self.session.cert = (f'{certificate_path}/signed-certificate.pem', f'{certificate_path}/private-key.pem')
     
     def http_request(self, end_point:str, query_string:dict) -> str:
