@@ -238,7 +238,7 @@ with st.sidebar.form(key='Form1'):
 
     options = st.multiselect(
     'Which companies would you like to see?',
-    ['DKSH', 'Deloitte', 'Amazon', 'Nike', 'Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX'],
+    ['DKSH', 'Deloitte', 'Tesla', 'Nike', 'Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX'],
     default=['Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX']
     )
 
