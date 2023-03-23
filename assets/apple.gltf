@@ -1,0 +1,168 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "extras" : {
+                "b_settings" : 1,
+                "b_player" : 1,
+                "s_output" : "exporting...",
+                "s_cubemap_path" : "/env/",
+                "b_renderer" : 1,
+                "b_export" : 1,
+                "export_path" : "/Users/sararutz/Desktop/hack/"
+            },
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "apple",
+            "rotation" : [
+                0.5,
+                0.5,
+                -0.5,
+                0.4999999701976776
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "alphaMode" : "BLEND",
+            "doubleSided" : true,
+            "name" : "apple",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "apple",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TANGENT" : 2,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "bufferView" : 5,
+            "mimeType" : "image/png",
+            "name" : "apple"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 4,
+            "max" : [
+                0.8893442749977112,
+                0,
+                0.5
+            ],
+            "min" : [
+                -0.8893442749977112,
+                0,
+                -0.5
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 6,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 48
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 64,
+            "byteOffset" : 96
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 32,
+            "byteOffset" : 160
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12,
+            "byteOffset" : 192
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1139,
+            "byteOffset" : 204
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987,
+            "wrapS" : 33071,
+            "wrapT" : 33071
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1344,
+            "uri" : "data:application/octet-stream;base64,EaxjvwAAAAAAAAA/EaxjPwAAAAAAAAA/EaxjvwAAAAAAAAC/EaxjPwAAAAAAAAC/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACA//9/PwAAAAAAAACAAACAPwAAgD8AAAAAAAAAgAAAgD8AAIA/AAAAAAAAAIAAAIA///9/PwAAAAAAAACAAACAPwAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAABAAMAAAADAAIAiVBORw0KGgoAAAANSUhEUgAAANkAAAB6CAMAAAAF6AYEAAAAZlBMVEX///8AAADt7e3h4eHn5+elpaXe3t77+/v09PTq6urU1NSSkpLx8fHHx8etra2zs7NXV1eIiIjOzs57e3spKSk6OjpycnJra2tfX18xMTEYGBi5ubkPDw/AwMCYmJhJSUkiIiJCQkLE1IZ1AAADyElEQVR4nO2cWXeqMBSFGwsyyFhFVJDh///JC3JbIeCY3WYvFt+zD2eb5ORM4eNjYWFhYWFhQQnPNSMhzrrNgGNsDqIl020ImNV2J8QMlXmm+MHXbQySdXQVJta6rQES5D1hwtBtDo5NX5coPd32wDAHwkRs6TYIhSRMhLoNQuGehsKST90WgbASacn2ui1CEUvCZuMZ19JeFKlui1AcJGG7uZyyT3kvBrotQrGXhEW6DUJhSI7xqNsgGKEkbD6x8DBgFK5ue2B40WDFvnTbg8PY9YSd5rNiQ58/G6944aqsCmeTulz4UbaZS7D4TausKlNTtx1KeK6fhf56uOfsLDu7veVyfHPTUAS+88fmvYe1ytLj7pQLkVe7uljbkz+y/W1SfRd68uqYnj3yo+ec5XD+uDnLNRwj28qhccPeX2kx+TmKcsJkEcX97ebuJ3/UULKG/lZW3TC5WTnTaFbEctxRUj38GWVgYkxtsf6KxGZ8vP+ThmLyXGrFfWz1U5RsnuSM0dVw4qogDEv1aiRM11uG09VQ6ZZz5QsqTIiUxY04IOfxw4bFi9y6ed8kobnUwsfGvsKeJseRa22KxCxnbFSRUqTQLeeKBxW21S2nx/0Q90UORE1rCxh8cLVmAqAwrtaM3F5RodYtps8a6fKppuZ8oLCIyH1gLzOiq6whemzws5y42mk4YWQdUBuojGuAAplyctX7kQkM12xqAVTG5UCQTp+rqo8M9BdlfwNSGdc5Qyrj8o1ID8I1UIz0+lxzt8iMmituRKZnFVML5sMAKuMKHC2ksj1Ln+ICUpmg6VS0yNMfSlB5R2xRnykMwTXeW2qikyY/4FGEqHzlAItXLUTB44PBnZfhGS+WH8qpUtF4kRX2oAmiW61GK6PpNSETmf8cdGvqwPapO/KAoShiQwOsb6KAYHgC2s+9SiNophn1byijiEbSXxCWU0wZjF5vAiB5EYQdvLpAEj8i6zwdNYFnbME7fpov2IAnHEXNcFF3gKdSiepz2BHpk245faAnjeaUtax3jw1+FpqZ9g5cMpPzFAw6br/QepFYtxKZ0UdN3iTRLWQMZj9WNGWQHpCYnyJ7kbEB/pGkBCKj/laLavi7j2rhICdJXiZQnA9hqTROoJbP0N1kfVYK0si/Criq3xVGFi6OWU1ea6ckKjLfdf0wLo+TT2nIV6zFHveuD6bfs9vLNuOFJXYePaTvF8TuqN5r+MMsvGSMqSYxoy4+rsr01hVlB4fy8g/kZcqWt9zD8gOzMAP/bnXe+QqDIDhTzVstLCwszJp/vrU0aCfMHS8AAAAASUVORK5CYIIA"
+        }
+    ]
+}

@@ -1,0 +1,173 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "extras" : {
+                "b_settings" : 1,
+                "b_player" : 1,
+                "s_output" : "exporting...",
+                "s_cubemap_path" : "/env/",
+                "b_renderer" : 1,
+                "b_export" : 1,
+                "export_path" : "/Users/sararutz/Desktop/hack/"
+            },
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "samsung ",
+            "rotation" : [
+                0.5,
+                0.5,
+                -0.5,
+                0.4999999701976776
+            ],
+            "scale" : [
+                0.7428891658782959,
+                0.7428891658782959,
+                0.7428891658782959
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "alphaMode" : "BLEND",
+            "doubleSided" : true,
+            "name" : "samsung ",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "samsung ",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TANGENT" : 2,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "bufferView" : 5,
+            "mimeType" : "image/png",
+            "name" : "samsung "
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 4,
+            "max" : [
+                1,
+                0,
+                0.5
+            ],
+            "min" : [
+                -1,
+                0,
+                -0.5
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 6,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 48
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 64,
+            "byteOffset" : 96
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 32,
+            "byteOffset" : 160
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12,
+            "byteOffset" : 192
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2796,
+            "byteOffset" : 204
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987,
+            "wrapS" : 33071,
+            "wrapT" : 33071
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 3000,
+            "uri" : "data:application/octet-stream;base64,AACAvwAAAAAAAAA/AACAPwAAAAAAAAA/AACAvwAAAAAAAAC/AACAPwAAAAAAAAC/AAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAAAAAAAAgD8AAACAAACAPwAAAAAAAACAAACAPwAAgD8AAAAAAAAAgAAAgD8AAIA/AAAAAAAAAIAAAIA/AACAPwAAAAAAAACAAACAPwAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAABAAMAAAADAAIAiVBORw0KGgoAAAANSUhEUgAAAWgAAAC0BAMAAABLQKsGAAAAGFBMVEUPN6j////u7+8AJKFBYbzP1utyicyisdxZ/fdmAAAKj0lEQVR42u2bzXPbNhOHIaFJriZqWleDjpMrYkriNaoc5xpZdnuNRql7rcad5N8vPnYXC5Cymc4777QZcDIT8Wvx8IfFxy5gUYVDNeH4T5yKAl2gC3SBLtAFukAX6AL9I0LD/xqu/ydOC3SBLtAFukAX6AJdoAv0DwldgoACXaALdIEu0AW6QBfoAl2ypiVyKdAFukAX6AJdoAt0gS7QP0rWFK/+a6HV/f0tXgDo+uu1eH/9x231j0z7fzp9V1dvH8Bm+rA9eqa0Ti33MH57L9u2FTcbFaF/tZeMvWo+JE8rVge8pOywIvjj1h74rlafrT0ZbJJaldb2123gdEcTCrq8b9zLt4Gpqe8v3aHpG+6sGSGEac1BIfRf/pI92vYjhz4V8dhE6M/x6tSdn7R0GHy3XrfwiLQ24d19eGhhnziD58MXbuH1OZQbzlZYD3doS0hP7aBf0zVbwo5Bnxu60R4i9Do+vvDQ8TGErvaG2VwpgA4XPHS4j9BYig7Q/qZE6FnkE3KuPfRMCn4xQusLdn03BC06d84eQ+g3htkUrqCnoBuElocBaP3IjclflINOrglbKQS9Zc9OjkOzx0R4V+9FavMYtEgLkqsB6LpNjM0dtEqviWWEfmSXp4PQ/uHHntK1zGyqce4hOtWHfp2I6mpDVGfpNV8uQHO9FmoI2jvTvqf0aWZT6nFKi3kfOqs1VxuiOs8LOBD0ehhaZl+4z5XmfkW+OsanhfEt8SxROqs1+7qgysVuT+4GobtBaKlT5YPSumdzNVLp0BIT6Jq6Y4O+JrBIc7M20OSoy5OZWw5Ab/rKK6pRZnOkT4eWmEDDk/LVPXSjc4KWH6oZ4BN0nTXaIWjnS9wPAjTZrNfUjMcp3akcGtqHbT30jgAE60w6eHdUesa93QxDW1+q+WPaQ0uSPQw8cqrG+XTQJoGGNndFfmgaAQW4vgsMTXHmCucteWuYRGiZNOXk21w3ofGzlhFu4t5Fr3HDKL4UZLhIqqpCaI8B0BN6X1YIHQ05VQI09DxfDDU5Di0RmveZZsOgO4KWx6BND/qQQ0NdJdBNDh2VBm8K1e+tceif0BY8Fp76Tui+0qvvULpjSiN0+EYD0DsKe0Bj/99V0/jH5GUfeoR79JTmIKC06CsN0PMB9wim5rUhCZjScrWGRnXuT+s+9Dwq/W6s0hykr3SYspJ7OCFhjktKb6FoSZ1KovQ+uEDor7A+DgzanYDNd6OVbnUGfZErLTQq7S3ZkMIFIAj9CP1KeOJdrvQjQD/y+kigX1mpvblmM1pp13YGoJ3SLIUA0DD7BzId5xQddI8LhFbQYrbBbwF61oe2NlWM0EYq7Wr0iNIRmiYY802eYUDYNbWQEMGBSd8A5yqgLBPoaFOx3MVxpfkEqxuhNEG3yxw6uMGUFIe7lxzawJjdDULLpVb6+5R2LfF5pWli2b7UCbSCT4QnlrnSvn+WmwC9gIJ2/t1HZnMY+uyo0nYUe17p+EL7KoFGOJhoznPoswDtG4Wc1Bya23wSOlG620NLrJ9TmkcZ7UsOjeMSfJbJoHdeD3nwp3KVKH2S2Byr9PICWmL9bO/B5zvti6oHvcPZX+bTu0AL7LtE6czmSKWXQb/uiNIxOySahgce7QdF0KeIAdCbTGllmJccEqWTYKb9ZazSwcb8iNJ31+F4v7FvfUqmzRvKe5zgROnUsDjP3kM8ydvjjGYobhawTWxioueZyAWGMalrNp+Ge9ZpMA3VHix0kleQS4I+x4CKJl0ptO825CRA6wQ6SQpBOPJ85LIMD5CrcWg75bqgMdPVz59clvYA0PiJOodG9wi1PYHuOoXWmc1RSs+Dm8gph26i0gm04h4Y0nOKUjWST1lTaP/A1c9hVpVCp+kauVBjlJ6DPN0YpXkGEvIvMbVlKAi8gokE4gVzi4sEeoXph7s2S+Y9HyNiC8R5Ze7TKXTFS2ghWYPjOzqxKytRGnuVMG/KoJvM5jilsSWKEUpbt27TgEdR1mNO0F2mdMOGkK4H3ajE5jifxpYoB30asjUEzfPJC0giGppyUPSUQsex1EY7PegkR32lxikdKm8yqPTbb/sMul4bnglVlBnoKhY9pdAxDLfj1QA0s9mpUT4NLXEphnwa52ERuppJw1pihF7Q+NaDjoO1rf4B6KqONkcqXcdm0lO6D630W5nmmKF3ZpkdnUHH1BJ9gROErX3RIoNRI3zapON/7tMDSjeahvMkxzyhwuwstGL5nwT6gLJ7aFqdi3nkUbm8NEH/hNKvr7/cXH+5/qhoPAClT0zvCzOlY1bVfg9XOkxtbj46BxGslp7xaVuwYtnyJ3wapiEdyyoH6PPYAT6iD6RKx/w1QXul9baV9mg7ptxIpdWZGaP0ecyZn5h+Nt9D488cmiI103ClsZwuptaeVjr6tFJyjE9/igWwr6eQyU+QP6GKfO1pxx2QxnqXU8Gxq2OKjooRXWtY8xEpjVxwNrQRn0wObRQLTv16AiWuM+gtm6/UNKvSeJ1BmzGRi4d+HIaWKfQxpfcR+hTz2hn0BRuPQOmpGlTajFHauHJPzXill8z/FMtduIwilrzIoampd4NKL9niHIdexqXpVGnd6Gp2BHoRV0VI6TnLPiiej9MRusuhSZWrCM2UFq7zF0xp1j1t2Tw4UToujiRJdfuluAZkoUEt21SxT517aKhuwxZfljk01rFr2jVl5HX1My5jV6zvj72XnNL1JVda6uiWERqUseExREOtFqiWefhsYq3GalIRen4UehUjBffuSd+mj+TRncw1TqU6rrRMEz0AjYWY9zjVrQQV3LZsmRMDw7DahKrn0DPTW+O6UvFdt2AZp7sNW52hRdGp5kp7aPI5gKZCWuqqRG3yJeGQVOfQDa63ZdD4rsspc+i+Tb98ke8n8DEbV1oniR6ArvJl5iXLmiYrvdT1LNnyNOzGOCFonHy4PE5NMZlOczX4VQNr83ag1D2fJkiEzhf0pxb6z3wXQsgwnZi4JI6LcLsMGj/YLdcl0NuBnQ0DuyBcSp4rvfGU+ww629JgCxZNtnVCvvCY2AP4zQfYQa5y6H1kSqBzm1OAzvzDzV+40hu+MkTQ2YYU43J5mX+YTVB6Gx2c1sJWbGeTh2YdbwJd5TZxVSSpVmn70AGlzzLoNG8nX3joM/4l7Ysw78Kpx4RDT4LS1GNoNkSk0KeJzSmtMcQADBILA0rXObRiL0mjfdaUx/rtSw1ZU1izC9CP4eTK37sIJ64hwk83RNRxXp7lJCBDHey+IQDpM7SgdHh5A90FJBoRmsWv0hxwr+ln6Ddbv4IRMkwP4TiEzYbhJGw1PA0ZV5d/gZ+u9Ev4CTGi4jb5RsQ30t+QsHExRC53kMMNecC/IKe7o82Es3XbGmPadh43E1Zfhf+0n/7Q+abT44fKdldWyZlW0aZKtmK+/eJumJtNssczebfqbdtUv17bL70GWzA3VF8fbh4s8v9wV6uz+fDwOy3jUNhfqd++fdt8v+WG1rGSXb3/r426YVNt+SPKAl2gC3SBLtAFuvyFfvmDswJdoAt0gS7QBbpAF+gCXf5Cv0QuBbpAF+gCXaALdIEu0CVrWoKAAl2gC3SBLtAFukAX6AL9bzj9G1lMlOJ3tZxsAAAAAElFTkSuQmCC"
+        }
+    ]
+}
