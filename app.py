@@ -29,8 +29,28 @@ def delete_page(main_script_path_str, page_name):
             pass
     _on_pages_changed.send()
 
+def add_page(main_script_path_str, page_name):
+    
+    pages = get_pages(main_script_path_str)
+    main_script_path = Path(main_script_path_str)
+    pages_dir = main_script_path.parent / "pages"
+    script_path = [f for f in pages_dir.glob("*.py") if f.name.find(page_name) != -1][0]
+    script_path_str = str(script_path.resolve())
+    pi, pn = page_icon_and_name(script_path)
+    psh = calc_md5(script_path_str)
+    pages[psh] = {
+        "page_script_hash": psh,
+        "page_name": pn,
+        "icon": pi,
+        "script_path": script_path_str,
+    }
+    _on_pages_changed.send()
+
 # remove the page from the sidebar
 delete_page('app.py', 'app')
+
+# add the chatbot page to the sidebar
+add_page('pages/1_🗨️_Chatbot.py', '🗨️ Chatbot')
 
 ############ page config
 st.set_page_config(
