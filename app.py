@@ -29,24 +29,6 @@ st.set_page_config(
     }
 )
 
-st.markdown(
-        f"""
-        <style>
-            [data-testid="stSidebarNav"] + div {{
-                position:relative;
-                bottom: 0;
-                height:50%;
-                background-image: {START_Logo.png};
-                background-size: 85% auto;
-                background-repeat: no-repeat;
-                background-position-x: center;
-                background-position-y: bottom;
-            }}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
 st.markdown("## Virtual Reality-based Financial Literacy Web Application")
 st.markdown("Welcome to *_FinVerse_*! "
             "Dive into the VR world by running the generator on the left sidebar and use keypads to walk through your financial universe."
@@ -278,6 +260,8 @@ with st.sidebar.form(key='Form1'):
 
     # add a submit button to the sidebar
     submit_button = st.form_submit_button(label='Generate VR world', use_container_width=True)
+
+st.sidebar.image("START_Logo.png", use_column_width=True)
 
 # with st.sidebar.form(key='Form2'):
 
