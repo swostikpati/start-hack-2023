@@ -262,8 +262,10 @@ with st.sidebar.form(key='Form1'):
     submit_button = st.form_submit_button(label='Generate VR world', use_container_width=True, type="primary")
 
     # add tips to the sidebar
-    st.markdown("<b>💡 Tips:</b>", unsafe_allow_html=True)
-    st.markdown("Use VR glasses to experience the world in 3D! Test it in our [randomly generated world](https://www.sararutz.ch/cuttingedge/index.html).")
+    st.markdown("""<b>💡 Tips:</b><br>
+                Use VR glasses to experience the world in 3D!
+                Test it in our [randomly generated world](https://www.sararutz.ch/cuttingedge/index.html).
+                """, unsafe_allow_html=True)
 
 st.sidebar.image("START_Logo.png", use_column_width=True)
 
