@@ -174,9 +174,6 @@ def print_object_attributes_text(valors, bcs, obj:object, tab_level:int=0, min_a
         for o in obj:
             if type(o) == object or type(o) == SimpleNamespace:
                 print_object_attributes_text(valors, bcs, o, tab_level+1, min_attr_length)
-            #     st.markdown("")
-            # else:
-            #     st.markdown(f"{space}{o:<{min_attr_length}}")
     else:
         for attr, value in obj.__dict__.items():
             if type(value) == object or type(value) == SimpleNamespace or type(value) == list:
@@ -238,7 +235,7 @@ with st.sidebar.form(key='Form1'):
 
     options = st.multiselect(
     'Which companies would you like to see?',
-    ['DKSH', 'Deloitte', 'Tesla', 'Nike', 'Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX'],
+    ['DKSH', 'Tesla', 'Amazon', 'Nike', 'Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX'],
     default=['Apple', 'Google', 'Samsung', 'Meta', 'Boeing', 'SIX']
     )
 
