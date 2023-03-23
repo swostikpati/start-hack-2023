@@ -45,7 +45,7 @@ class FinancialDataAPI:
         }
         self.session = requests.session()
         certificate_path = 'ch52991-hackathon1'
-        self.session.cert = (f'{certificate_path}\signed-certificate.pem', f'{certificate_path}\private-key.pem')
+        self.session.cert = (f'{certificate_path}/signed-certificate.pem', f'{certificate_path}/private-key.pem')
     
     def http_request(self, end_point:str, query_string:dict) -> str:
         # Make an HTTP request and send the raw response
