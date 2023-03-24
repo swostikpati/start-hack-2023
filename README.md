@@ -26,6 +26,9 @@ Rising lights mean the company's EoD prices have increased compared to the previ
 
 Dimming/lowering lights link to a decrease of the company's EoD prices.
 
+## 🖼️ Presentation
+The slides can be found in the `SIX_CUTTINGEDGE_FINVERSE.pdf` file attached in this repository.
+
 ## ✨ Team: Cutting Edge
 - Sara Rutz ([LinkedIn](https://www.linkedin.com/in/sara-rutz-35b595222))
 - Suchit Gupta ([LinkedIn](https://www.linkedin.com/in/suchit-gupta-305083119))
