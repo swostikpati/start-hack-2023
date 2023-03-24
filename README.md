@@ -21,7 +21,9 @@ Users can walk through their portfolio by choosing designated companies and witn
 https://user-images.githubusercontent.com/73829218/227436161-1538f475-2c1b-4ddf-a31d-fff35e2b4659.mp4
 
 Taller buildings correspond to companies with a higher average value.
-Rising lights mean the company's EoD prices have increased compared to the previous day
+
+Rising lights mean the company's EoD prices have increased compared to the previous day.
+
 Dimming/lowering lights link to a decrease of the company's EoD prices.
 
 ## ✨ Team: Cutting Edge
