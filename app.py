@@ -264,7 +264,7 @@ with st.sidebar.form(key='Form1'):
     # add tips to the sidebar
     st.markdown("""<b>💡 Tips:</b><br>
                 Use VR glasses to experience the world in 3D!
-                Try our [randomly generated world](https://www.sararutz.ch/cuttingedge/index.html).
+                Try our [randomly generated world](https://caramel-lofty-newsprint.glitch.me/).
                 """, unsafe_allow_html=True)
 
 st.sidebar.image("imgs/START_Logo.png", use_column_width=True)
@@ -315,7 +315,7 @@ if submit_button:
 
         # st.write("Differences: ", diffs)
 
-        components.html('<iframe src="https://www.sararutz.ch/cuttingedge/index.html" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>', height=700)
+        components.html('<iframe src="https://caramel-lofty-newsprint.glitch.me/" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>', height=700)
 
         # components.html(
         #     '''
