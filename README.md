@@ -4,7 +4,7 @@ Globally, only 1-in-3 adults are 'financially literate'. Access to financial dat
 
 Presenting [FinVerse](https://six-cutting-edge.streamlit.app/), a VR financial literacy platform developed during the START Hack 2023.
 
-![](mockup.png)
+![](imgs/mockup.png)
 
 ## 📌 How to run
 - Go to [https://six-cutting-edge.streamlit.app/](https://six-cutting-edge.streamlit.app/)

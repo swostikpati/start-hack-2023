@@ -234,7 +234,7 @@ def print_object_attributes_timeseries(highs, lows, obj:object, tab_level:int=0,
 ######################### DASHBOARD #########################    
 
 # add image to the sidebar
-st.sidebar.image("SIX_CUTTINGEDGE.png", use_column_width=True)
+st.sidebar.image("imgs/SIX_CUTTINGEDGE.png", use_column_width=True)
 
 with st.sidebar.form(key='Form1'):
     # create a sidebar with a submit button
@@ -267,7 +267,7 @@ with st.sidebar.form(key='Form1'):
                 Try our [randomly generated world](https://www.sararutz.ch/cuttingedge/index.html).
                 """, unsafe_allow_html=True)
 
-st.sidebar.image("START_Logo.png", use_column_width=True)
+st.sidebar.image("imgs/START_Logo.png", use_column_width=True)
 
 if submit_button:
 
