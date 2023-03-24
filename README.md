@@ -18,7 +18,7 @@ We connect to a live stream of market data and End of Day (EoD) prices using [SI
 
 Users can walk through their portfolio by choosing designated companies and witness how their empire rises firsthand.
 
-https://user-images.githubusercontent.com/73829218/227436161-1538f475-2c1b-4ddf-a31d-fff35e2b4659.mp4
+https://user-images.githubusercontent.com/73829218/227461839-0967cfd8-732c-4662-b347-c058edf5280c.mp4
 
 Taller buildings correspond to companies with a higher average value.
 
