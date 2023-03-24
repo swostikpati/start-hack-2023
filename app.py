@@ -315,7 +315,7 @@ if submit_button:
 
         # st.write("Differences: ", diffs)
 
-        components.html('<iframe src="https://caramel-lofty-newsprint.glitch.me/" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>', height=550)
+        components.html('<iframe src="https://caramel-lofty-newsprint.glitch.me/" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>', height=400)
 
         # components.html(
         #     '''
