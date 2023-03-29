@@ -4,10 +4,12 @@ Globally, only 1-in-3 adults are 'financially literate'. Access to financial dat
 
 Presenting [FinVerse](https://finverse.streamlit.app/), a VR financial literacy platform developed during the START Hack 2023.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_red.svg)](https://finverse.streamlit.app)
+
 ![](imgs/mockup.png)
 
 ## 📌 How to run
-- Go to [https://finverse.streamlit.app/](https://six-cutting-edge.streamlit.app/)
+- Go to [https://finverse.streamlit.app/](https://finverse.streamlit.app/)
 - Pick companies you are investing in or would like to compare with each other
 - Click on the "Generate VR world" button
 - Dive into the immersive finverse to see the visualization of how they are faring in the financial world
